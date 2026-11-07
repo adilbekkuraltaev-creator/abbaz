@@ -1,0 +1,525 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Abbaz Daribaev</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=IBM+Plex+Mono:wght@400;500&family=Onest:wght@400;500;600&display=swap">
+<style>
+/*
+  Layout: left-aligned, asymmetric. Huge name, then a bilingual interlinear panel
+  (the one bold moment: a sentence aligned across Uzbek, tokens and a target language).
+  Skills are written as glossary entries. Contact sits on an inverted ink band.
+*/
+:root {
+  --bg: #EDF0F7;
+  --surface: #F8F9FD;
+  --fg: #12162B;
+  --muted: #565D7C;
+  --line: #CBD1E4;
+  --accent: #2336E8;
+  --accent-fg: #FFFFFF;
+  --hi: rgba(35, 54, 232, 0.10);
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Onest", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0C0F1E;
+    --surface: #141830;
+    --fg: #E9ECF9;
+    --muted: #9AA2C6;
+    --line: #272D4D;
+    --accent: #8A98FF;
+    --accent-fg: #0C0F1E;
+    --hi: rgba(138, 152, 255, 0.16);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0C0F1E;
+  --surface: #141830;
+  --fg: #E9ECF9;
+  --muted: #9AA2C6;
+  --line: #272D4D;
+  --accent: #8A98FF;
+  --accent-fg: #0C0F1E;
+  --hi: rgba(138, 152, 255, 0.16);
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: auto; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: 30;
+  background: var(--bg);
+}
+h1, h2, h3 { font-family: var(--font-display); margin: 0; text-wrap: balance; }
+p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.wrap {
+  width: 100%;
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* header */
+.top {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 20;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 3.5rem; }
+.brand { font-family: var(--font-display); font-weight: 700; font-size: 1.0625rem; letter-spacing: -0.01em; text-decoration: none; }
+.nav { display: flex; align-items: center; gap: 1.75rem; }
+.nav ul { display: flex; gap: 1.5rem; list-style: none; margin: 0; padding: 0; }
+.nav a { text-decoration: none; color: var(--muted); font-size: 0.9375rem; }
+.nav a:hover { color: var(--fg); }
+.theme {
+  display: inline-grid; place-items: center;
+  width: 2.5rem; height: 2.5rem;
+  background: transparent; color: var(--fg);
+  border: 1px solid var(--line); border-radius: 3px; cursor: pointer;
+}
+.theme:hover { background: var(--hi); }
+@media (max-width: 520px) { .nav ul { display: none; } }
+
+/* hero */
+.hero { padding-block: clamp(2.5rem, 7vw, 5.5rem) clamp(3rem, 7vw, 6rem); }
+h1 {
+  font-size: clamp(3.4rem, 13.5vw, 10rem);
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+  font-weight: 700;
+  font-stretch: 78%;
+}
+.hero-grid {
+  margin-top: clamp(2rem, 5vw, 3.5rem);
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: start;
+}
+.lede { font-size: clamp(1.15rem, 2.2vw, 1.4rem); line-height: 1.45; max-width: 34ch; margin-bottom: 1.75rem; }
+.actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.btn {
+  display: inline-flex; align-items: center;
+  min-height: 2.75rem; padding: 0 1.25rem;
+  border: 1px solid var(--fg); border-radius: 3px;
+  background: transparent; color: var(--fg);
+  font-weight: 500; font-size: 1rem; text-decoration: none;
+}
+.btn:hover { background: var(--hi); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); }
+.btn.primary:hover { filter: brightness(1.08); }
+
+/* interlinear panel */
+.ilm { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: clamp(1rem, 2.5vw, 1.5rem); }
+.ilm-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.9rem; }
+.ilm-title { font-family: var(--font-mono); font-size: 0.8125rem; color: var(--muted); }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 3px; overflow: hidden; }
+.seg button {
+  font-family: var(--font-mono); font-size: 0.8125rem;
+  background: transparent; color: var(--muted);
+  border: 0; padding: 0.4rem 0.85rem; min-height: 2.25rem; cursor: pointer;
+}
+.seg button[aria-pressed="true"] { background: var(--fg); color: var(--bg); }
+.row {
+  display: grid; grid-template-columns: 3.6rem minmax(0, 1fr); gap: 0.75rem;
+  align-items: baseline; padding: 0.9rem 0; border-top: 1px solid var(--line);
+}
+.tag { font-family: var(--font-mono); font-size: 0.8125rem; color: var(--muted); }
+.words { display: flex; flex-wrap: wrap; gap: 0.4rem; min-width: 0; }
+.w, .tok {
+  background: transparent; color: var(--fg);
+  border: 1px solid var(--line); border-radius: 3px; cursor: pointer;
+  transition: background-color 140ms, color 140ms, border-color 140ms;
+}
+.w { font-family: var(--font-body); font-size: 1.0625rem; padding: 0.35rem 0.65rem; }
+.tok { font-family: var(--font-mono); font-size: 0.875rem; padding: 0.3rem 0.5rem; border-style: dashed; }
+.w.on, .tok.on { background: var(--accent); border-color: var(--accent); border-style: solid; color: var(--accent-fg); }
+.ilm-note { margin-top: 0.4rem; padding-top: 0.9rem; border-top: 1px solid var(--line); font-size: 0.9375rem; color: var(--muted); max-width: 52ch; }
+
+/* sections */
+.section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
+.band { background: var(--surface); }
+.split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(1.5rem, 4vw, 4rem); align-items: start; }
+h2 { font-size: clamp(1.9rem, 4.2vw, 3.1rem); line-height: 1.08; letter-spacing: -0.02em; font-weight: 600; font-stretch: 90%; }
+.prose p { max-width: 60ch; margin-bottom: 1.25rem; }
+.offer { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem 2rem; margin-top: 2.25rem; }
+.offer h3 { font-size: 1.125rem; font-weight: 600; margin-bottom: 0.6rem; }
+.offer ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.5rem; color: var(--muted); font-size: 0.9375rem; }
+
+/* skills as glossary */
+.skills-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+.glossary { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem clamp(1.5rem, 4vw, 4rem); }
+.entry { border-top: 2px solid var(--fg); padding-top: 1rem; min-width: 0; }
+.entry h3 { font-size: 1.75rem; font-weight: 600; letter-spacing: -0.015em; line-height: 1.1; }
+.def { color: var(--muted); margin: 0.4rem 0 1rem; max-width: 44ch; }
+.terms { list-style: none; margin: 0; padding: 0; }
+.terms li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 1rem; padding: 0.6rem 0; border-top: 1px solid var(--line); }
+.terms b { font-weight: 500; }
+.terms span { color: var(--muted); font-size: 0.9375rem; }
+@media (max-width: 520px) { .terms li { grid-template-columns: minmax(0, 1fr); gap: 0.1rem; } }
+
+/* comparison */
+.cmp { margin-top: 2.5rem; }
+.cmp-head, .cmp-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(1rem, 4vw, 3rem); }
+.cmp-head { font-family: var(--font-mono); font-size: 0.8125rem; color: var(--muted); padding-bottom: 0.75rem; }
+.cmp-row { padding: 1.2rem 0; border-top: 1px solid var(--line); }
+.cmp-row .a { font-family: var(--font-display); font-size: clamp(1.1rem, 2.2vw, 1.4rem); font-weight: 500; line-height: 1.25; }
+.cmp-row .b { color: var(--muted); }
+.cmp-row code { font-family: var(--font-mono); font-size: 0.9em; color: var(--accent); }
+
+/* contact on inverted band */
+.contact { background: var(--fg); color: var(--bg); }
+.contact :focus-visible { outline-color: var(--bg); }
+.contact .lead { max-width: 44ch; margin-top: 1rem; opacity: 0.8; }
+.c-list { list-style: none; margin: 2.5rem 0 0; padding: 0; }
+.c-row {
+  display: grid; grid-template-columns: minmax(0, 9rem) minmax(0, 1fr) auto; gap: 1rem; align-items: center;
+  padding: 1rem 0; border-top: 1px solid color-mix(in srgb, var(--bg) 25%, transparent);
+}
+.c-label { opacity: 0.7; font-size: 0.9375rem; }
+.c-val { font-family: var(--font-mono); font-size: clamp(0.9375rem, 2.4vw, 1.25rem); overflow-wrap: anywhere; user-select: all; }
+.copy {
+  font-family: var(--font-body); font-size: 0.9375rem; font-weight: 500;
+  background: transparent; color: inherit;
+  border: 1px solid color-mix(in srgb, var(--bg) 45%, transparent); border-radius: 3px;
+  min-height: 2.5rem; padding: 0 1rem; cursor: pointer;
+}
+.copy:hover { background: color-mix(in srgb, var(--bg) 14%, transparent); }
+@media (max-width: 560px) { .c-row { grid-template-columns: minmax(0, 1fr) auto; } .c-label { grid-column: 1 / -1; } }
+.foot { margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid color-mix(in srgb, var(--bg) 25%, transparent); font-size: 0.875rem; opacity: 0.7; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+
+@media (max-width: 880px) {
+  .hero-grid, .split, .glossary { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 600px) { .offer { grid-template-columns: minmax(0, 1fr); } }
+@media (prefers-reduced-motion: reduce) { .w, .tok { transition: none; } }
+</style>
+
+<header class="top" id="top">
+  <div class="wrap bar">
+    <a class="brand" href="#top">A. Daribaev</a>
+    <div class="nav">
+      <nav aria-label="Bo‘limlar">
+        <ul>
+          <li><a href="#haqida">Haqida</a></li>
+          <li><a href="#konikmalar">Ko‘nikmalar</a></li>
+          <li><a href="#aloqa">Aloqa</a></li>
+        </ul>
+      </nav>
+      <button class="theme" id="theme" type="button" aria-label="Yorug‘ va qorong‘i mavzuni almashtirish">
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9 2a7 7 0 0 1 0 14z" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1>Abbaz<br>Daribaev</h1>
+      <div class="hero-grid">
+        <div>
+          <p class="lede">AI/ML muhandisi va tarjimon. Modellarga til o‘rgataman, matnlarni esa ma’noni yo‘qotmay bir tildan ikkinchisiga o‘tkazaman.</p>
+          <div class="actions">
+            <a class="btn primary" href="#aloqa">Bog‘lanish</a>
+            <a class="btn" href="#konikmalar">Ko‘nikmalarni ko‘rish</a>
+          </div>
+        </div>
+        <div class="ilm" id="ilm" role="group" aria-label="Bir gapning uch tilda va tokenlarda tahlili">
+          <div class="ilm-head">
+            <span class="ilm-title">parallel matn</span>
+            <div class="seg" role="group" aria-label="Tarjima tili">
+              <button type="button" data-lang="en" aria-pressed="true">EN</button>
+              <button type="button" data-lang="ru" aria-pressed="false">RU</button>
+            </div>
+          </div>
+          <div class="row"><span class="tag">uz</span><div class="words" id="row-uz"></div></div>
+          <div class="row"><span class="tag">token</span><div class="words" id="row-tok"></div></div>
+          <div class="row"><span class="tag" id="tag-tr">en</span><div class="words" id="row-tr"></div></div>
+          <p class="ilm-note">So‘z ustiga olib boring yoki bosing: bir ma’noning boshqa tildagi va token qatoridagi o‘rni belgilanadi. Token bo‘linishi misol uchun berilgan, har bir model o‘ziga xos bo‘ladi.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="haqida" style="scroll-margin-top:3.5rem">
+    <div class="wrap split">
+      <h2>Ikki til, bitta ish: ma’noni aniq yetkazish.</h2>
+      <div class="prose">
+        <p>Men sun’iy intellekt va mashinaviy o‘qitish bo‘yicha muhandisman va tarjima bilan ham shug‘ullanaman. Bu ikki ish bir-birini to‘ldiradi: modelni baholash uchun tilni tushunish kerak, tarjimada esa texnologiyani bilish kerak.</p>
+        <p>Natijada texnik matnni ham, uni yozgan modelni ham ikki tomondan tekshira olaman.</p>
+        <div class="offer">
+          <div>
+            <h3>Muhandislik</h3>
+            <ul>
+              <li>Modelni o‘qitish va sozlash</li>
+              <li>NLP va LLM asosidagi ilovalar</li>
+              <li>Ma’lumotni tayyorlash va baholash</li>
+              <li>Modelni servis sifatida ishga tushirish</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Tarjima</h3>
+            <ul>
+              <li>Texnik va ilmiy matnlar</li>
+              <li>Mahsulot va interfeys lokalizatsiyasi</li>
+              <li>Mashina tarjimasini tahrirlash</li>
+              <li>Terminologiya lug‘ati tuzish</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band" id="konikmalar" style="scroll-margin-top:3.5rem">
+    <div class="wrap">
+      <div class="skills-head">
+        <h2>Ko‘nikmalar lug‘ati</h2>
+        <div class="seg" role="group" aria-label="Ko‘nikmalarni saralash">
+          <button type="button" data-f="all" aria-pressed="true">Hammasi</button>
+          <button type="button" data-f="ml" aria-pressed="false">AI/ML</button>
+          <button type="button" data-f="tr" aria-pressed="false">Tarjima</button>
+        </div>
+      </div>
+      <div class="glossary" id="glossary">
+        <article class="entry" data-cat="ml">
+          <h3>Mashinaviy o‘qitish</h3>
+          <p class="def">Modelni ma’lumotdan o‘rgatish va natijani o‘lchash.</p>
+          <ul class="terms">
+            <li><b>Python</b><span>asosiy dasturlash tili</span></li>
+            <li><b>PyTorch</b><span>modellar va o‘qitish sikli</span></li>
+            <li><b>scikit-learn</b><span>klassik usullar va baseline</span></li>
+            <li><b>NumPy, pandas</b><span>jadval va massivlar bilan ishlash</span></li>
+            <li><b>Tajribalar</b><span>metrikalar va variantlarni solishtirish</span></li>
+          </ul>
+        </article>
+        <article class="entry" data-cat="ml">
+          <h3>NLP va LLM</h3>
+          <p class="def">Til bilan ishlaydigan modellar va ularni ilovaga ulash.</p>
+          <ul class="terms">
+            <li><b>Transformers</b><span>tayyor modellar va fine-tuning</span></li>
+            <li><b>Tokenizatsiya, embeddings</b><span>matnni raqamlarga aylantirish</span></li>
+            <li><b>RAG</b><span>hujjatlar asosida javob berish</span></li>
+            <li><b>Prompt dizayni</b><span>aniq va tekshiriladigan so‘rovlar</span></li>
+            <li><b>Mashina tarjimasi</b><span>NMT modelini sozlash va baholash</span></li>
+          </ul>
+        </article>
+        <article class="entry" data-cat="ml">
+          <h3>Muhandislik</h3>
+          <p class="def">Modelni ishlaydigan mahsulotga aylantirish.</p>
+          <ul class="terms">
+            <li><b>FastAPI</b><span>model uchun API</span></li>
+            <li><b>Docker</b><span>takrorlanadigan muhit</span></li>
+            <li><b>Git, Linux</b><span>kundalik ish muhiti</span></li>
+            <li><b>SQL</b><span>ma’lumotlar bazasi bilan ishlash</span></li>
+          </ul>
+        </article>
+        <article class="entry" data-cat="tr">
+          <h3>Tarjima</h3>
+          <p class="def">Ma’no, ohang va terminologiyani saqlab o‘tkazish.</p>
+          <ul class="terms">
+            <li><b>Texnik va ilmiy matn</b><span>IT, sun’iy intellekt, muhandislik</span></li>
+            <li><b>Lokalizatsiya</b><span>mahsulot va interfeys matnlari</span></li>
+            <li><b>Post-editing</b><span>mashina tarjimasini tahrirlash</span></li>
+            <li><b>Terminologiya</b><span>glossariy tuzish va yuritish</span></li>
+            <li><b>Sifat nazorati</b><span>BLEU, COMET va qo‘lda tekshiruv</span></li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="usul">
+    <div class="wrap">
+      <h2>Tarjimon ham, model ham bir savolga javob izlaydi: bu gap qanday ma’noda aytilgan?</h2>
+      <div class="cmp">
+        <div class="cmp-head"><span>tarjimonda</span><span>modelda</span></div>
+        <div class="cmp-row"><p class="a">Gapni butun matn ichida o‘qiydi</p><p class="b"><code>Attention</code> har bir so‘zni qolgan matn bilan bog‘laydi.</p></div>
+        <div class="cmp-row"><p class="a">Terminologiyaga amal qiladi</p><p class="b"><code>Embeddings</code> bir atamani bir ma’noda ushlab turadi.</p></div>
+        <div class="cmp-row"><p class="a">Tarjimani tahrir qiladi</p><p class="b"><code>BLEU</code> va <code>COMET</code> natijani o‘lchaydi, xatolarni ko‘rsatadi.</p></div>
+        <div class="cmp-row"><p class="a">Ohangni moslaydi</p><p class="b"><code>Fine-tuning</code> modelga kerakli uslubni o‘rgatadi.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="section contact" id="aloqa" style="scroll-margin-top:3.5rem">
+  <div class="wrap">
+    <h2>Loyiha yoki tarjima bo‘yicha yozing.</h2>
+    <p class="lead">Vazifani bir-ikki gapda tushuntiring, matn hajmi va muddatni yozing. Javobni shu kanallardan birida beraman.</p>
+    <ul class="c-list" id="contacts"></ul>
+    <div class="foot"><span>© 2026 Abbaz Daribaev</span><span>AI/ML muhandisi va tarjimon</span></div>
+  </div>
+</section>
+
+<script>
+(function () {
+  /* Edit these contact details. Leave href empty to show a copy button only. */
+  var CONTACTS = [
+    { label: "Email", value: "email@misol.uz", href: "" },
+    { label: "Telegram", value: "@username", href: "" },
+    { label: "GitHub", value: "github.com/username", href: "" },
+    { label: "LinkedIn", value: "linkedin.com/in/username", href: "" }
+  ];
+
+  /* interlinear panel */
+  var UZ = [["men", "Men"], ["machines", "mashinalarga"], ["lang", "til"], ["teach", "o‘rgataman"]];
+  var TOK = [["▁Men", "men"], ["▁mashina", "machines"], ["lar", "machines"], ["ga", "machines"], ["▁til", "lang"], ["▁o‘", "teach"], ["rgat", "teach"], ["aman", "teach"]];
+  var TR = {
+    en: [["men", "I"], ["teach", "teach"], ["lang", "language"], ["machines", "to machines"]],
+    ru: [["men", "Я"], ["teach", "обучаю"], ["machines", "машины"], ["lang", "языку"]]
+  };
+  var ORDER = ["men", "teach", "lang", "machines"];
+  var lang = "en", active = "teach", timer = null;
+
+  function fill(el, list, cls) {
+    el.textContent = "";
+    list.forEach(function (p) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = cls;
+      b.dataset.k = p[p.length === 2 && cls === "tok" ? 1 : 0];
+      b.textContent = cls === "tok" ? p[0] : p[1];
+      el.appendChild(b);
+    });
+  }
+  function paint() {
+    document.querySelectorAll("#ilm [data-k]").forEach(function (n) {
+      n.classList.toggle("on", n.dataset.k === active);
+    });
+  }
+  function renderTr() {
+    fill(document.getElementById("row-tr"), TR[lang], "w");
+    document.getElementById("tag-tr").textContent = lang;
+    paint();
+  }
+  fill(document.getElementById("row-uz"), UZ, "w");
+  fill(document.getElementById("row-tok"), TOK, "tok");
+  renderTr();
+
+  function stop() { if (timer) { clearInterval(timer); timer = null; } }
+  function pick(e) {
+    var t = e.target.closest ? e.target.closest("[data-k]") : null;
+    if (!t) return;
+    stop();
+    active = t.dataset.k;
+    paint();
+  }
+  var ilm = document.getElementById("ilm");
+  ilm.addEventListener("pointerover", pick);
+  ilm.addEventListener("focusin", pick);
+  ilm.addEventListener("click", pick);
+  ilm.querySelectorAll("[data-lang]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      lang = b.dataset.lang;
+      ilm.querySelectorAll("[data-lang]").forEach(function (x) {
+        x.setAttribute("aria-pressed", String(x === b));
+      });
+      renderTr();
+    });
+  });
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    var i = ORDER.indexOf(active);
+    timer = setInterval(function () {
+      i = (i + 1) % ORDER.length;
+      active = ORDER[i];
+      paint();
+    }, 2200);
+  }
+
+  /* skills filter */
+  var fbtns = document.querySelectorAll("[data-f]");
+  fbtns.forEach(function (b) {
+    b.addEventListener("click", function () {
+      var f = b.dataset.f;
+      fbtns.forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+      document.querySelectorAll("#glossary .entry").forEach(function (en) {
+        en.hidden = !(f === "all" || en.dataset.cat === f);
+      });
+    });
+  });
+
+  /* theme toggle */
+  var root = document.documentElement;
+  try { var saved = localStorage.getItem("theme"); if (saved) root.setAttribute("data-theme", saved); } catch (e) {}
+  function effective() {
+    var t = root.getAttribute("data-theme");
+    if (t) return t;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+  document.getElementById("theme").addEventListener("click", function () {
+    var next = effective() === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("theme", next); } catch (e) {}
+  });
+
+  /* contacts */
+  var list = document.getElementById("contacts");
+  CONTACTS.forEach(function (c) {
+    var li = document.createElement("li");
+    li.className = "c-row";
+    var lab = document.createElement("span");
+    lab.className = "c-label";
+    lab.textContent = c.label;
+    var val = document.createElement("span");
+    val.className = "c-val";
+    if (c.href) {
+      var a = document.createElement("a");
+      a.href = c.href; a.target = "_blank"; a.rel = "noopener";
+      a.textContent = c.value;
+      val.appendChild(a);
+    } else {
+      val.textContent = c.value;
+    }
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "copy";
+    btn.textContent = "Nusxa olish";
+    btn.addEventListener("click", function () {
+      function done() {
+        btn.textContent = "Nusxalandi";
+        setTimeout(function () { btn.textContent = "Nusxa olish"; }, 1600);
+      }
+      function fallback() {
+        var r = document.createRange();
+        r.selectNodeContents(val);
+        var s = window.getSelection();
+        s.removeAllRanges();
+        s.addRange(r);
+      }
+      try {
+        navigator.clipboard.writeText(c.value).then(done, fallback);
+      } catch (e) { fallback(); }
+    });
+    li.appendChild(lab); li.appendChild(val); li.appendChild(btn);
+    list.appendChild(li);
+  });
+})();
+</script>
+
+</body></html>
